@@ -1,0 +1,530 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ma Shan Zheng', 'ZCOOL QingKe HuangYou', cursive, sans-serif;
+    background: linear-gradient(135deg, #0c2e44 0%, #1a1a2e 50%, #16213e 100%);
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 雪花容器 */
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 卡片容器 */
+.card-container {
+    width: 90%;
+    max-width: 800px;
+    height: 85vh;
+    position: relative;
+    z-index: 2;
+    perspective: 1500px;
+}
+
+/* 页面通用样式 */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transform: rotateY(90deg);
+    transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.8s;
+}
+
+.page.active {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.page-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 第一页样式 */
+.page-1 .recipient {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 2rem;
+    color: #ffdd59;
+    text-shadow: 0 2px 10px rgba(255, 221, 89, 0.5);
+    letter-spacing: 3px;
+}
+
+.page-1 .sender {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 1.8rem;
+    color: #ff9f1a;
+    text-shadow: 0 2px 10px rgba(255, 159, 26, 0.5);
+    letter-spacing: 3px;
+}
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transform: translateY(-30px);
+}
+
+.title {
+    font-size: 4.5rem;
+    margin-top: 30px;
+    color: #ff6b6b;
+    text-shadow: 
+        0 0 15px rgba(255, 107, 107, 0.8),
+        0 0 30px rgba(255, 107, 107, 0.4);
+    letter-spacing: 8px;
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin-top: 10px;
+    color: #4ecdc4;
+    text-shadow: 0 2px 10px rgba(78, 205, 196, 0.5);
+    letter-spacing: 5px;
+}
+
+/* 圣诞树样式 */
+.christmas-tree {
+    position: relative;
+    width: 180px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.small-tree {
+    position: absolute;
+    width: 80px;
+    height: 130px;
+    top: 30px;
+    right: 40px;
+    z-index: 1;
+}
+
+.tree-top, .tree-middle, .tree-bottom {
+    position: absolute;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid #0a3d2f;
+}
+
+.tree-top {
+    top: 0;
+    left: 40px;
+    border-bottom-color: #2ecc71;
+    filter: brightness(1.2);
+}
+
+.tree-middle {
+    top: 60px;
+    left: 30px;
+    border-bottom-color: #27ae60;
+    filter: brightness(1.1);
+}
+
+.tree-bottom {
+    top: 120px;
+    left: 20px;
+    border-bottom-color: #229954;
+}
+
+.small-tree .tree-top {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #2ecc71;
+    left: 15px;
+}
+
+.small-tree .tree-middle {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #27ae60;
+    top: 30px;
+    left: 10px;
+}
+
+.small-tree .tree-bottom {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid #229954;
+    top: 60px;
+    left: 5px;
+}
+
+.trunk {
+    position: absolute;
+    width: 20px;
+    height: 40px;
+    background: #8b4513;
+    bottom: 0;
+    left: 90px;
+    border-radius: 0 0 5px 5px;
+}
+
+.small-tree .trunk {
+    width: 10px;
+    height: 20px;
+    left: 35px;
+    bottom: 0;
+}
+
+.star {
+    position: absolute;
+    top: -25px;
+    left: 85px;
+    width: 30px;
+    height: 30px;
+    background: #ffdd59;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 2s infinite alternate;
+    box-shadow: 0 0 20px rgba(255, 221, 89, 0.8);
+}
+
+.small-tree .star {
+    width: 15px;
+    height: 15px;
+    top: -10px;
+    left: 32.5px;
+}
+
+.ornament {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    animation: bounce 3s infinite ease-in-out;
+}
+
+.ornament1 {
+    background: #ff6b6b;
+    top: 40px;
+    left: 85px;
+    animation-delay: 0s;
+}
+
+.ornament2 {
+    background: #4ecdc4;
+    top: 90px;
+    left: 120px;
+    animation-delay: 0.5s;
+}
+
+.ornament3 {
+    background: #ff9f1a;
+    top: 140px;
+    left: 70px;
+    animation-delay: 1s;
+}
+
+.ornament4 {
+    background: #c56cf0;
+    top: 180px;
+    left: 110px;
+    animation-delay: 1.5s;
+}
+
+/* 第二页样式 */
+.page-2 {
+    padding: 40px;
+}
+
+.letter-content {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 85%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    border: 2px solid rgba(255, 221, 89, 0.5);
+}
+
+.letter-header {
+    border-bottom: 2px dashed #ff9f1a;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.recipient-small {
+    font-size: 2.2rem;
+    color: #0c2e44;
+    font-weight: bold;
+}
+
+.letter-body {
+    margin-bottom: 25px;
+}
+
+.letter-text {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: justify;
+}
+
+.letter-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px dashed #ff9f1a;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.sender-small {
+    font-size: 1.8rem;
+    color: #0c2e44;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 1.6rem;
+    color: #666;
+}
+
+/* 装饰元素 */
+.decoration {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    display: flex;
+    gap: 30px;
+    z-index: 1;
+}
+
+.candle {
+    width: 30px;
+    height: 80px;
+    background: linear-gradient(to right, #ff6b6b, #ff9f1a);
+    border-radius: 5px;
+    position: relative;
+    animation: flicker 3s infinite alternate;
+}
+
+.candle::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 25px;
+    background: #ffdd59;
+    border-radius: 50% 50% 20% 20%;
+    box-shadow: 0 0 20px rgba(255, 221, 89, 0.8);
+}
+
+.gift-box {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.gift1 {
+    background: linear-gradient(45deg, #ff6b6b, #ff9f1a);
+}
+
+.gift2 {
+    background: linear-gradient(45deg, #4ecdc4, #2ecc71);
+}
+
+.gift-box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gift-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 翻页提示 */
+.page-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.page-hint:hover {
+    color: #ffdd59;
+}
+
+.page-hint i {
+    margin-top: 5px;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+/* 音乐控制 */
+/* .music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#music-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 221, 89, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+#music-toggle:hover {
+    background: rgba(255, 221, 89, 0.2);
+    transform: scale(1.05);
+} */
+
+/* 动画 */
+@keyframes twinkle {
+    0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.9;
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(255, 107, 107, 0.9), 0 0 30px rgba(255, 107, 107, 0.5);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .card-container {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .letter-content {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .letter-text {
+        font-size: 1.5rem;
+    }
+    
+    .recipient-small, .sender-small {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+        letter-spacing: 5px;
+    }
+    
+    .letter-content {
+        padding: 20px;
+    }
+    
+    .letter-text {
+        font-size: 1.3rem;
+    }
+    
+    .christmas-tree {
+        width: 140px;
+        height: 230px;
+    }
+}
